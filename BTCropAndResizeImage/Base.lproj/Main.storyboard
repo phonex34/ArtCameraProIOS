@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="vz1-ht-2aX">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller - My Apps-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="ViewNeedCrop" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="images.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-K4-FQW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXc-N4-rik">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Abh-IR-PVc" appends="YES" id="VxK-9t-mdv"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.057313162089237868" green="0.022483427631785902" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Apps" id="hi9-TH-irK">
+                        <barButtonItem key="leftBarButtonItem" title="Choose Image" id="R8U-K7-fWE">
+                            <connections>
+                                <action selector="selectImage" destination="vXZ-lx-hvc" id="FS5-2s-zi6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Crop Now" style="plain" id="tJU-vu-YnV">
+                            <connections>
+                                <segue destination="ILS-Jo-H2S" kind="push" identifier="cropView" id="gas-tu-sgo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <size key="freeformSize" width="320" height="500"/>
+                    <connections>
+                        <outlet property="boundView" destination="WXc-N4-rik" id="iMS-o4-8Lb"/>
+                        <outlet property="imageView" destination="Auz-K4-FQW" id="3jU-9i-9RD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Abh-IR-PVc">
+                    <connections>
+                        <action selector="handlePan:" destination="vXZ-lx-hvc" id="Gdg-re-CJY"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="35" y="-529"/>
+        </scene>
+        <!--Crop View Controller - Cropped Image-->
+        <scene sceneID="SsZ-60-lqM">
+            <objects>
+                <viewController id="ILS-Jo-H2S" customClass="cropViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3al-xa-8dN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kuq-Fk-HWm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z0c-Di-ndB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kr0-1v-bfY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F4P-b6-SSp">
+                                <rect key="frame" x="0.0" y="376" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Save" id="Kza-3z-P68">
+                                        <connections>
+                                            <action selector="onClickSaveImage:" destination="ILS-Jo-H2S" id="dul-Jw-pyg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DIM-2F-PnU"/>
+                                    <barButtonItem title="Share To FaceBook" id="Fwy-JR-pxF">
+                                        <connections>
+                                            <action selector="onClickButtonShare:" destination="ILS-Jo-H2S" id="Kwc-np-thd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWW-cI-DqJ">
+                                <rect key="frame" x="16" y="328" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cropped Image" id="raP-NE-IDP">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="ZwF-Bt-W6t">
+                            <connections>
+                                <segue destination="vz1-ht-2aX" kind="modal" modalTransitionStyle="flipHorizontal" id="d1O-rt-a6g"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Filter Image" id="Bb8-E3-8oL">
+                            <connections>
+                                <segue destination="j4e-Zf-QS4" kind="push" identifier="filterView" id="QWD-Ku-A1J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <size key="freeformSize" width="320" height="490"/>
+                    <connections>
+                        <outlet property="ImageViewCropped" destination="kr0-1v-bfY" id="bCf-sQ-mga"/>
+                        <outlet property="txtField" destination="VWW-cI-DqJ" id="Ck0-vA-EFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W0R-gM-4V6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-373" y="165"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XNk-tv-qUP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vz1-ht-2aX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <size key="freeformSize" width="320" height="490"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vVt-mm-QgH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="V5n-hu-H66"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gN2-5l-Mpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-366" y="-529"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="Scb-gr-Zrp">
+            <objects>
+                <viewController id="j4e-Zf-QS4" customClass="testViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OnM-cY-Mia"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tvp-zi-SRS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5iO-zc-lQ3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDz-J5-Z2o">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-0.5" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="f8H-zp-hmN">
+                                <rect key="frame" x="24" y="256" width="277" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeSliderValue:" destination="j4e-Zf-QS4" eventType="valueChanged" id="WVw-h1-6MD"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boh-qR-3rI">
+                                <rect key="frame" x="22" y="282" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Bright">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="brightButton:" destination="j4e-Zf-QS4" eventType="touchUpInside" id="h2a-vl-77I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raL-Cj-AoY">
+                                <rect key="frame" x="114" y="282" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sharpen">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sharpenButton:" destination="j4e-Zf-QS4" eventType="touchUpInside" id="jPB-1k-Tn9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="at5-fm-x6S">
+                                <rect key="frame" x="213" y="282" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Contrast">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="contrastButton:" destination="j4e-Zf-QS4" eventType="touchUpInside" id="C5z-bq-o13"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yWK-B5-vEI">
+                                <rect key="frame" x="0.0" y="314" width="320" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pde-0U-2KZ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="b85-d9-UWt">
+                            <connections>
+                                <action selector="backClicked:" destination="j4e-Zf-QS4" id="uVc-Vc-D8O"/>
+                                <segue destination="ILS-Jo-H2S" kind="push" identifier="backToCropped" id="xKb-Ue-yFt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Default" id="MaK-og-F2q">
+                            <connections>
+                                <action selector="DefaultClicked:" destination="j4e-Zf-QS4" id="cLR-dF-AP0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageSlider" destination="f8H-zp-hmN" id="eFa-ee-Vlo"/>
+                        <outlet property="imageView" destination="WDz-J5-Z2o" id="qcF-6a-tFt"/>
+                        <outlet property="myScrollView" destination="yWK-B5-vEI" id="bel-Fw-HJB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8p9-wo-VVG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104" y="165"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="images.jpg" width="1920" height="2560"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="xKb-Ue-yFt"/>
+    </inferredMetricsTieBreakers>
+</document>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A5BC993C-1BD3-4FB6-8BB7-60BB99E89808</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ThucTap_INSTAGRAM</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>831556AA-130C-474C-811A-83B4F85876E6</key>
+		<string>https://github.com/phonex34/ArtCameraProIOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ThucTap_INSTAGRAM.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>831556AA-130C-474C-811A-83B4F85876E6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/phonex34/ArtCameraProIOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>831556AA-130C-474C-811A-83B4F85876E6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>831556AA-130C-474C-811A-83B4F85876E6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ArtCameraProIOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
